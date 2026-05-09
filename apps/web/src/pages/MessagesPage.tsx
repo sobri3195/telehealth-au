@@ -1,0 +1,2 @@
+import { Link } from 'react-router-dom';import { Card,CardDescription,CardTitle } from '@/components/ui/card';
+export const MessagesPage=()=> <div className="space-y-4"><h1 className="text-2xl font-black">Pesan</h1><Link to="/app/messages/demo-consultation"><Card><CardTitle>dr. Wira Prakoso</CardTitle><CardDescription>Konsultasi keluhan mendadak · delivered/read aktif</CardDescription></Card></Link><Card><CardTitle>Admin Faskes Lanud</CardTitle><CardDescription>Administrasi rujukan dan jadwal dokter.</CardDescription></Card></div>;

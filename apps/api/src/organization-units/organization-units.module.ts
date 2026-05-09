@@ -1,0 +1,1 @@
+import { Module } from '@nestjs/common';import { OrganizationUnitsController } from './organization-units.controller';@Module({controllers:[OrganizationUnitsController]})export class OrganizationUnitsModule{}
