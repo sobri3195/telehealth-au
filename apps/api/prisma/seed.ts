@@ -1,5 +1,9 @@
-import { PrismaClient, FacilityType, UnitType, UserRole, PatientStatus } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcryptjs';
+
+
+import { FacilityType, PatientStatus, UnitType, UserRole } from '../src/prisma/prisma-enums';
+
 const prisma=new PrismaClient();
 const hierarchy:Record<string,string[]>={
 'KOOPSUDNAS':['Koopsudnas I','Koopsudnas II','Koopsudnas III','Korpasgat','Kosek IKN','Kosekhanudnas I','Kosek II','Pusdiklathanudnas'],
