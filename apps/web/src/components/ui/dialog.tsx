@@ -1,0 +1,3 @@
+import * as DialogPrimitive from '@radix-ui/react-dialog';import type React from 'react';import { cn } from '@/lib/utils';
+export const Dialog=DialogPrimitive.Root;export const DialogTrigger=DialogPrimitive.Trigger;export const DialogTitle=DialogPrimitive.Title;export const DialogClose=DialogPrimitive.Close;
+export const DialogContent=({className,...p}:React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>)=><DialogPrimitive.Portal><DialogPrimitive.Overlay className="fixed inset-0 z-50 bg-slate-950/50"/><DialogPrimitive.Content className={cn('fixed left-1/2 top-1/2 z-50 w-[92vw] max-w-md -translate-x-1/2 -translate-y-1/2 rounded-3xl bg-white p-5 shadow-soft',className)} {...p}/></DialogPrimitive.Portal>;

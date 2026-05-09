@@ -1,0 +1,8 @@
+import { create } from 'zustand';import type { NeedType } from '@/data/catalog';
+export type Priority='green'|'yellow'|'red';
+export const useAuthStore=create<{token?:string;role:string;login:(token:string,role?:string)=>void;logout:()=>void}>(set=>({role:'patient',login:(token,role='patient')=>set({token,role}),logout:()=>set({token:undefined,role:'patient'})}));
+export const useUserStore=create(()=>({patient:{name:'Kapten Tek. Aditya Pratama',unit:'Lanud Halim Perdanakusuma',status:'Prajurit',bloodType:'O+',allergies:'Debu'}}));
+export const useSelectedUnitStore=create<{unit?:string;setUnit:(unit:string)=>void}>(set=>({setUnit:unit=>set({unit})}));
+export const usePatientNeedStore=create<{selected?:NeedType;answers:Record<string,unknown>;priority?:Priority;setSelected:(n:NeedType)=>void;answer:(k:string,v:unknown)=>void;reset:()=>void;setPriority:(p:Priority)=>void}>(set=>({answers:{},setSelected:selected=>set({selected,answers:{},priority:undefined}),answer:(k,v)=>set(s=>({answers:{...s.answers,[k]:v}})),reset:()=>set({selected:undefined,answers:{},priority:undefined}),setPriority:priority=>set({priority})}));
+export const useChatStore=create<{messages:{id:string;from:'patient'|'doctor'|'admin';body:string;status:'sent'|'delivered'|'read'}[];send:(body:string)=>void}>(set=>({messages:[{id:'1',from:'doctor',body:'Selamat pagi, saya dr. Wira. Silakan jelaskan keluhan Anda.',status:'read'}],send:body=>set(s=>({messages:[...s.messages,{id:crypto.randomUUID(),from:'patient',body,status:'sent'}]}))}));
+export const useUiStore=create<{emergencyOpen:boolean;setEmergencyOpen:(open:boolean)=>void}>(set=>({emergencyOpen:false,setEmergencyOpen:emergencyOpen=>set({emergencyOpen})}));

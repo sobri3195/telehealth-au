@@ -1,0 +1,1 @@
+import { Module } from '@nestjs/common';import { TriageModule } from '../triage/triage.module';import { PatientNeedsController } from './patient-needs.controller';import { PatientNeedsService } from './patient-needs.service';@Module({imports:[TriageModule],controllers:[PatientNeedsController],providers:[PatientNeedsService]})export class PatientNeedsModule{}

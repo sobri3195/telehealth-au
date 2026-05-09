@@ -1,0 +1,2 @@
+import type { Config } from 'tailwindcss';
+export default { darkMode: ['class'], content: ['./index.html','./src/**/*.{ts,tsx}'], theme: { extend: { colors: { skyforce: { 50:'#eff8ff',100:'#dff1ff',500:'#1478c8',600:'#0d5fa4',700:'#0a4b83',900:'#092f52' }, emergency: '#dc2626' }, boxShadow: { soft: '0 18px 50px rgba(9,47,82,.12)' } } }, plugins: [require('tailwindcss-animate')] } satisfies Config;

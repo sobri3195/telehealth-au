@@ -1,0 +1,10 @@
+import { z } from 'zod';
+export const loginSchema=z.object({identifier:z.string().min(3),password:z.string().min(6)});
+export const registerSchema=z.object({fullName:z.string().min(3),identifier:z.string().min(3),phone:z.string().min(8),password:z.string().min(6)});
+export const patientProfileSchema=z.object({fullName:z.string(),identityNumber:z.string(),status:z.enum(['Prajurit','PNS','Keluarga','Siswa','Purnawirawan','Masyarakat umum']),rank:z.string().optional(),corps:z.string().optional(),unit:z.string(),kotama:z.string(),nearestBase:z.string(),phone:z.string(),address:z.string(),bloodType:z.string().optional(),allergies:z.string().optional(),medicalHistory:z.string().optional(),routineMedication:z.string().optional(),emergencyContact:z.string(),preferredFacility:z.string()});
+export const patientNeedSchema=z.object({type:z.string(),answers:z.record(z.string(),z.unknown())});
+export const symptomQuestionnaireSchema=z.object({complaint:z.string().min(3),duration:z.string().min(1),redFlags:z.array(z.string()).default([])});
+export const consultationSchema=z.object({patientNeedId:z.string(),mode:z.enum(['chat','voice','video'])});
+export const messageSchema=z.object({consultationId:z.string(),body:z.string().min(1),attachments:z.array(z.string()).default([])});
+export const prescriptionSchema=z.object({consultationId:z.string(),items:z.array(z.object({medicine:z.string(),dosage:z.string(),frequency:z.string(),duration:z.string()}))});
+export const referralSchema=z.object({consultationId:z.string(),targetFacilityId:z.string(),reason:z.string(),diagnosis:z.string().optional()});
