@@ -7,5 +7,7 @@ coverage
 .DS_Store
 .vite
 uploads
+!apps/api/src/uploads/
+!apps/api/src/uploads/*.ts
 
 *.tsbuildinfo
