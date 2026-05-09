@@ -1,5 +1,33 @@
-import { PrismaClient, FacilityType, UnitType, UserRole, PatientStatus } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcryptjs';
+
+
+const FacilityType = {
+  PUSKESAU: 'PUSKESAU',
+  RSPAU: 'RSPAU',
+  RSAU: 'RSAU',
+  LAKESGILUTAU: 'LAKESGILUTAU',
+  LAKESPRA: 'LAKESPRA',
+  LAFIAU: 'LAFIAU',
+} as const;
+
+const UnitType = {
+  KOTAMA: 'KOTAMA',
+  LANUD: 'LANUD',
+  WING: 'WING',
+  DEPOHAR: 'DEPOHAR',
+  PUSKESAU: 'PUSKESAU',
+  OTHER: 'OTHER',
+} as const;
+
+const UserRole = {
+  PATIENT: 'PATIENT',
+} as const;
+
+const PatientStatus = {
+  PRAJURIT: 'PRAJURIT',
+} as const;
+
 const prisma=new PrismaClient();
 const hierarchy:Record<string,string[]>={
 'KOOPSUDNAS':['Koopsudnas I','Koopsudnas II','Koopsudnas III','Korpasgat','Kosek IKN','Kosekhanudnas I','Kosek II','Pusdiklathanudnas'],
